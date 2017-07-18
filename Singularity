@@ -14,6 +14,6 @@ From:centos:latest
     yum -y install bwa
 
 %runscript
-    echo "Index reference"
-    exec /usr/bin/bwa index "$@"`
-    exec /usr/bin/bwa mem "$@"`
+    echo "Perform Mapping"
+    exec cd /data && /usr/bin/bwa index SRR5817936.fasta && bwa mem SRR5817936.fasta SRR5817936_1.fastq SRR5817936_2.fastq > aln.sam
+    echo "Mapping complete"
