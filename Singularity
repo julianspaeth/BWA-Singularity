@@ -4,9 +4,6 @@ From:centos:latest
 %labels
     MAINTAINER Julian Spaeth
 
-    %runscript
-        exec /usr/bin/bwa "$@"
-
 %post
     yum -y update
     yum -y upgrade
@@ -14,3 +11,10 @@ From:centos:latest
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     yum -y install epel-release-latest-7.noarch.rpm
     yum -y install bwa
+
+%runscript
+    echo "Arguments received: $*"
+    exec /usr/bin/bwa "$@"
+
+%test
+    /usr/bin/bwa
