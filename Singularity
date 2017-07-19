@@ -4,6 +4,9 @@ From:centos:latest
 %labels
     MAINTAINER Julian Spaeth
 
+    %runscript
+        exec /usr/bin/bwa "$@"
+
 %post
     yum -y update
     yum -y upgrade
