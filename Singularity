@@ -15,6 +15,3 @@ From:centos:latest
 %runscript
     echo "Arguments received: $*"
     exec /usr/bin/bwa "$@"
-
-%test
-    /usr/bin/bwa
